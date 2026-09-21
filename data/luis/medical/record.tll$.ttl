@@ -1,0 +1,120 @@
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix med:  <https://example.org/medical#> .
+
+<http://localhost:3000/luis/medical/record>
+    a med:MedicalRecord ;
+    med:patientID        "PAC-2024-004" ;
+    med:fullName         "Luis Herrera Montoya" ;
+    med:birthDate        "1965-01-19"^^xsd:date ;
+    med:gender           "Masculino" ;
+    med:nationality      "Mexicano" ;
+    med:email            "luis.herrera@example.com" ;
+    med:phone            "+52 81 2345 6789" ;
+    med:address          "Av. Constitucion 456, Monterrey, Nuevo Leon, Mexico" ;
+    med:emergencyContact "Rosa Herrera - +52 81 9876 5432" ;
+    med:diagnosis        <http://localhost:3000/luis/medical/diag/001>,
+                         <http://localhost:3000/luis/medical/diag/002> ;
+    med:medication       <http://localhost:3000/luis/medical/med/001>,
+                         <http://localhost:3000/luis/medical/med/002> ;
+    med:appointment      <http://localhost:3000/luis/medical/apt/001> .
+
+<http://localhost:3000/luis/medical/diag/001>
+    a med:Diagnosis ;
+    med:icdCode       "I25.1" ;
+    med:description   "Enfermedad coronaria aterosclerotica" ;
+    med:diagnosedDate "2022-08-30"^^xsd:date ;
+    med:diagnosedBy   "Dr. Andres Filippi" ;
+    med:severity      "Severa" .
+
+<http://localhost:3000/luis/medical/diag/002>
+    a med:Diagnosis ;
+    med:icdCode       "E78.5" ;
+    med:description   "Hiperlipidemia mixta" ;
+    med:diagnosedDate "2022-09-05"^^xsd:date ;
+    med:diagnosedBy   "Dr. Andres Filippi" ;
+    med:severity      "Moderada" .
+
+<http://localhost:3000/luis/medical/med/001>
+    a med:Medication ;
+    med:drugName       "Atorvastatina" ;
+    med:dosage         "40 mg" ;
+    med:frequency      "1 vez al dia noche" ;
+    med:prescribedDate "2022-09-10"^^xsd:date ;
+    med:prescribedBy   "Dr. Andres Filippi" .
+
+<http://localhost:3000/luis/medical/med/002>
+    a med:Medication ;
+    med:drugName       "Aspirina" ;
+    med:dosage         "100 mg" ;
+    med:frequency      "1 vez al dia" ;
+    med:prescribedDate "2022-09-10"^^xsd:date ;
+    med:prescribedBy   "Dr. Andres Filippi" .
+
+<http://localhost:3000/luis/medical/apt/001>
+    a med:Appointment ;
+    med:appointmentDate "2025-10-18"^^xsd:date ;
+    med:attendingDoctor "Dr. Andres Filippi" ;
+    med:specialty       "Cardiologia" ;
+    med:notes           "Ecocardiograma estable. LDL: 88 mg/dL. Continuar tratamiento." .
+
+# ── Alergias ──
+<http://localhost:3000/luis/medical/allergy/001>
+    a med:Allergy ;
+    med:allergyType     "Medicamento" ;
+    med:allergyName     "Penicilina" ;
+    med:reaction        "Erupciones cutaneas y dificultad respiratoria" ;
+    med:severity        "Severa" ;
+    med:diagnosedDate   "1998-03-15"^^xsd:date ;
+    med:diagnosedBy     "Dr. Andres Filippi" .
+
+<http://localhost:3000/luis/medical/allergy/002>
+    a med:Allergy ;
+    med:allergyType     "Medicamento" ;
+    med:allergyName     "Ibuprofeno" ;
+    med:reaction        "Gastritis severa y sangrado gastrointestinal" ;
+    med:severity        "Moderada" ;
+    med:diagnosedDate   "2010-07-22"^^xsd:date ;
+    med:diagnosedBy     "Dr. Andres Filippi" .
+
+<http://localhost:3000/luis/medical/allergy/003>
+    a med:Allergy ;
+    med:allergyType     "Alimento" ;
+    med:allergyName     "Mariscos" ;
+    med:reaction        "Urticaria generalizada e inflamacion facial" ;
+    med:severity        "Moderada" ;
+    med:diagnosedDate   "2005-11-08"^^xsd:date ;
+    med:diagnosedBy     "Dr. Andres Filippi" .
+
+<http://localhost:3000/luis/medical/allergy/004>
+    a med:Allergy ;
+    med:allergyType     "Alimento" ;
+    med:allergyName     "Cacahuates" ;
+    med:reaction        "Picazon en garganta e inflamacion de labios" ;
+    med:severity        "Leve" ;
+    med:diagnosedDate   "2005-11-08"^^xsd:date ;
+    med:diagnosedBy     "Dr. Andres Filippi" .
+
+# ── Cirugias previas ──
+<http://localhost:3000/luis/medical/surgery/001>
+    a med:Surgery ;
+    med:surgeryName     "Reduccion abierta y fijacion interna de fractura" ;
+    med:surgeryReason   "Fractura de femur derecho por accidente de transito" ;
+    med:icdCode         "S72.0" ;
+    med:surgeryDate     "2003-06-14"^^xsd:date ;
+    med:surgeon         "Dr. Marco Rios" ;
+    med:hospital        "Hospital General de Zona No. 1, IMSS, Monterrey" ;
+    med:anesthesia      "General" ;
+    med:outcome         "Satisfactorio. Recuperacion completa tras 6 meses de rehabilitacion." ;
+    med:complications   "Ninguna" .
+
+<http://localhost:3000/luis/medical/surgery/002>
+    a med:Surgery ;
+    med:surgeryName     "Artroscopia de rodilla derecha" ;
+    med:surgeryReason   "Lesion de menisco interno por secuela de fractura previa" ;
+    med:icdCode         "M23.2" ;
+    med:surgeryDate     "2008-02-27"^^xsd:date ;
+    med:surgeon         "Dr. Marco Rios" ;
+    med:hospital        "Hospital General de Zona No. 1, IMSS, Monterrey" ;
+    med:anesthesia      "Regional" ;
+    med:outcome         "Satisfactorio. Movilidad completa recuperada." ;
+    med:complications   "Ninguna" .

@@ -1,0 +1,48 @@
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix med:  <https://example.org/medical#> .
+
+<http://localhost:3000/sofia/medical/record>
+    a med:MedicalRecord ;
+    med:patientID        "PAC-2024-003" ;
+    med:fullName         "Sofia Reyes Vazquez" ;
+    med:birthDate        "1990-11-05"^^xsd:date ;
+    med:gender           "Femenino" ;
+    med:nationality      "Mexicana" ;
+    med:email            "sofia.reyes@example.com" ;
+    med:phone            "+52 33 1234 5678" ;
+    med:address          "Calle Juarez 234, Guadalajara, Jalisco, Mexico" ;
+    med:emergencyContact "Miguel Reyes - +52 33 8765 4321" ;
+    med:diagnosis        <http://localhost:3000/sofia/medical/diag/001> ;
+    med:medication       <http://localhost:3000/sofia/medical/med/001> ;
+    med:appointment      <http://localhost:3000/sofia/medical/apt/001>,
+                         <http://localhost:3000/sofia/medical/apt/002> .
+
+<http://localhost:3000/sofia/medical/diag/001>
+    a med:Diagnosis ;
+    med:icdCode       "G43.9" ;
+    med:description   "Migraina sin aura" ;
+    med:diagnosedDate "2018-04-17"^^xsd:date ;
+    med:diagnosedBy   "Dra. Patricia Llorente" ;
+    med:severity      "Recurrente moderada" .
+
+<http://localhost:3000/sofia/medical/med/001>
+    a med:Medication ;
+    med:drugName       "Sumatriptan" ;
+    med:dosage         "50 mg" ;
+    med:frequency      "Al inicio del episodio max 2 por dia" ;
+    med:prescribedDate "2018-05-02"^^xsd:date ;
+    med:prescribedBy   "Dra. Patricia Llorente" .
+
+<http://localhost:3000/sofia/medical/apt/001>
+    a med:Appointment ;
+    med:appointmentDate "2025-07-14"^^xsd:date ;
+    med:attendingDoctor "Dra. Patricia Llorente" ;
+    med:specialty       "Neurologia" ;
+    med:notes           "Frecuencia de episodios: 3 por mes. Sin cambios en patron." .
+
+<http://localhost:3000/sofia/medical/apt/002>
+    a med:Appointment ;
+    med:appointmentDate "2026-02-10"^^xsd:date ;
+    med:attendingDoctor "Dra. Patricia Llorente" ;
+    med:specialty       "Neurologia" ;
+    med:notes           "Se evalua inicio de tratamiento preventivo con Topiramato." .

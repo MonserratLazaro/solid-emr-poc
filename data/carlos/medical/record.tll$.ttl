@@ -1,0 +1,48 @@
+@prefix ns0: <https://example.org/medical#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://localhost:3000/carlos/medical/record>
+  a <https://example.org/medical#MedicalRecord> ;
+  ns0:patientID "PAC-2024-002" ;
+  ns0:fullName "Carlos Mendoza Ruiz" ;
+  ns0:birthDate "1972-07-28"^^xsd:date ;
+  ns0:gender "Masculino" ;
+  ns0:nationality "Mexicano" ;
+  ns0:email "carlos.mendoza@example.com" ;
+  ns0:phone "+52 55 2345 6789" ;
+  ns0:address "Av. Insurgentes Sur 890, CDMX, Mexico" ;
+  ns0:emergencyContact "Laura Mendoza - +52 55 3456 7890" ;
+  ns0:diagnosis <http://localhost:3000/carlos/medical/diag/001> ;
+  ns0:medication <http://localhost:3000/carlos/medical/med/001>, <http://localhost:3000/carlos/medical/med/002> ;
+  ns0:appointment <http://localhost:3000/carlos/medical/apt/001> .
+
+<http://localhost:3000/carlos/medical/diag/001>
+  a ns0:Diagnosis ;
+  ns0:icdCode "M54.5" ;
+  ns0:description "Lumbalgia cronica" ;
+  ns0:diagnosedDate "2019-11-03"^^xsd:date ;
+  ns0:diagnosedBy "Dr. Ernesto Quiroga" ;
+  ns0:severity "Moderada" .
+
+<http://localhost:3000/carlos/medical/med/001>
+  a ns0:Medication ;
+  ns0:drugName "Ibuprofeno" ;
+  ns0:dosage "400 mg" ;
+  ns0:frequency "Cada 8 horas segun dolor" ;
+  ns0:prescribedDate "2019-11-10"^^xsd:date ;
+  ns0:prescribedBy "Dr. Ernesto Quiroga" .
+
+<http://localhost:3000/carlos/medical/med/002>
+  a ns0:Medication ;
+  ns0:drugName "Ciclobenzaprina" ;
+  ns0:dosage "5 mg" ;
+  ns0:frequency "1 vez al dia noche" ;
+  ns0:prescribedDate "2019-11-10"^^xsd:date ;
+  ns0:prescribedBy "Dr. Ernesto Quiroga" .
+
+<http://localhost:3000/carlos/medical/apt/001>
+  a ns0:Appointment ;
+  ns0:appointmentDate "2025-08-22"^^xsd:date ;
+  ns0:attendingDoctor "Dr. Ernesto Quiroga" ;
+  ns0:specialty "Traumatologia" ;
+  ns0:notes "Persistencia de dolor lumbar. Se solicita RMN de columna." .

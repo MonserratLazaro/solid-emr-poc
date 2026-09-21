@@ -1,0 +1,22 @@
+@prefix acl: <http://www.w3.org/ns/auth/acl#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+
+<#public> a acl:Authorization;
+    acl:agentClass foaf:Agent;
+    acl:accessTo <record.ttl>;
+    acl:mode acl:Read.
+<#patient> a acl:Authorization;
+    acl:accessTo <./>;
+    acl:mode acl:Read, acl:Write, acl:Control;
+    acl:agent <../profile/card#me>;
+    acl:default <./>.
+<#doctors> a acl:Authorization;
+    acl:accessTo <./>;
+    acl:mode acl:Read;
+    acl:default <record.ttl>;
+    acl:agentGroup <../../system/groups/doctors.ttl#group>.
+<#admin> a acl:Authorization;
+    acl:accessTo <record.ttl>;
+    acl:mode acl:Read, acl:Write, acl:Control;
+    acl:agent <../../system/profile/card#me>;
+    acl:default <record.ttl>.

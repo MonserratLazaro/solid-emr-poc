@@ -1,0 +1,56 @@
+@prefix ns0: <https://example.org/medical#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://localhost:3000/ana/medical/record>
+  a <https://example.org/medical#MedicalRecord> ;
+  ns0:patientID "PAC-2024-001" ;
+  ns0:fullName "Ana Garcia Lopez" ;
+  ns0:birthDate "1985-03-12"^^xsd:date ;
+  ns0:gender "Femenino" ;
+  ns0:nationality "Mexicana" ;
+  ns0:email "ana.garcia@example.com" ;
+  ns0:phone "+52 55 1234 5678" ;
+  ns0:address "Calle Madero 123, Centro Historico, CDMX, Mexico" ;
+  ns0:emergencyContact "Pedro Garcia - +52 55 8765 4321" ;
+  ns0:diagnosis <http://localhost:3000/ana/medical/diag/001>, <http://localhost:3000/ana/medical/diag/002> ;
+  ns0:medication <http://localhost:3000/ana/medical/med/001>, <http://localhost:3000/ana/medical/med/002> ;
+  ns0:appointment <http://localhost:3000/ana/medical/apt/001> .
+
+<http://localhost:3000/ana/medical/diag/001>
+  a ns0:Diagnosis ;
+  ns0:icdCode "E11" ;
+  ns0:description "Diabetes mellitus tipo 2" ;
+  ns0:diagnosedDate "2020-06-10"^^xsd:date ;
+  ns0:diagnosedBy "Dr. Roberto Salinas" ;
+  ns0:severity "Moderada" .
+
+<http://localhost:3000/ana/medical/diag/002>
+  a ns0:Diagnosis ;
+  ns0:icdCode "I10" ;
+  ns0:description "Hipertension arterial esencial" ;
+  ns0:diagnosedDate "2021-03-22"^^xsd:date ;
+  ns0:diagnosedBy "Dr. Roberto Salinas" ;
+  ns0:severity "Leve" .
+
+<http://localhost:3000/ana/medical/med/001>
+  a ns0:Medication ;
+  ns0:drugName "Metformina" ;
+  ns0:dosage "850 mg" ;
+  ns0:frequency "2 veces al dia" ;
+  ns0:prescribedDate "2020-06-15"^^xsd:date ;
+  ns0:prescribedBy "Dr. Roberto Salinas" .
+
+<http://localhost:3000/ana/medical/med/002>
+  a ns0:Medication ;
+  ns0:drugName "Enalapril" ;
+  ns0:dosage "10 mg" ;
+  ns0:frequency "1 vez al dia" ;
+  ns0:prescribedDate "2021-03-25"^^xsd:date ;
+  ns0:prescribedBy "Dr. Roberto Salinas" .
+
+<http://localhost:3000/ana/medical/apt/001>
+  a ns0:Appointment ;
+  ns0:appointmentDate "2025-09-10"^^xsd:date ;
+  ns0:attendingDoctor "Dr. Roberto Salinas" ;
+  ns0:specialty "Endocrinologia" ;
+  ns0:notes "Control trimestral de glucosa. HbA1c: 7.2%" .

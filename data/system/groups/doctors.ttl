@@ -1,0 +1,10 @@
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+
+<http://localhost:3000/system/groups/doctors.ttl#group>
+    a vcard:Group ;
+    vcard:fn "Medicos del Sistema" ;
+    vcard:hasMember
+        <http://localhost:3000/dr-salinas/profile/card#me> ,
+        <http://localhost:3000/dr-quiroga/profile/card#me> ,
+        <http://localhost:3000/dra-llorente/profile/card#me> ,
+        <http://localhost:3000/dr-filippi/profile/card#me> .
